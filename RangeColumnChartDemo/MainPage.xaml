@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RangeColumnChartDemo.MainPage"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             xmlns:local="clr-namespace:RangeColumnChartDemo">
+
+    <ContentPage.BindingContext>
+        <local:ViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+
+        <Border BackgroundColor="White" Stroke="#BEB1AE" Margin="10,20,10,10" Padding="10">
+
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="30"/>
+            </Border.StrokeShape>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+
+                <chart:SfCartesianChart Margin="10" BackgroundColor="White" EnableSideBySideSeriesPlacement="True">
+
+                    <chart:SfCartesianChart.Title>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <HorizontalStackLayout Grid.Column="0">
+                                <Image Source="cloud.jpg" WidthRequest="40" HeightRequest="40"/>
+                                <Label VerticalOptions="Center"  
+                                           Text="Average Temperature Variations in Rome: 2021 vs. 2022" FontSize="18"/>
+                            </HorizontalStackLayout>
+                        </Grid>
+                    </chart:SfCartesianChart.Title>
+
+                    <chart:SfCartesianChart.Legend>
+                        <chart:ChartLegend ItemTemplate="{StaticResource LegendTemplate}">
+                        </chart:ChartLegend>
+                    </chart:SfCartesianChart.Legend>
+
+                    <chart:SfCartesianChart.Resources>
+                        <ResourceDictionary>
+                            <DataTemplate x:Key="LegendTemplate">
+                                <Grid ColumnDefinitions="Auto,Auto"  ColumnSpacing="5">
+                                    <HorizontalStackLayout>
+                                        <Ellipse HorizontalOptions="Center" VerticalOptions="Center" 
+                                                 HeightRequest="13" WidthRequest="13" Margin="0,3,3,0"
+                                                 Fill="{Binding IconBrush}"/>
+                                        <Label Grid.Column="1" FontSize="16" VerticalTextAlignment="Center"
+                                                               Text="{Binding Item.Label}" TextColor="Black"
+                                                               HorizontalOptions="Center"  HorizontalTextAlignment="Start"/>
+                                    </HorizontalStackLayout>
+                                </Grid>
+                            </DataTemplate>
+                        </ResourceDictionary>
+                    </chart:SfCartesianChart.Resources>
+
+                    <chart:SfCartesianChart.XAxes>
+                        <chart:CategoryAxis LabelPlacement="BetweenTicks">
+                            <chart:CategoryAxis.LabelStyle>
+                                <chart:ChartAxisLabelStyle TextColor="Black" FontSize="Caption"/>
+                            </chart:CategoryAxis.LabelStyle>
+                        </chart:CategoryAxis>
+                    </chart:SfCartesianChart.XAxes>
+
+                    <chart:SfCartesianChart.YAxes>
+                        <chart:NumericalAxis  Minimum="-5" Maximum="40" ShowMajorGridLines="False">
+                            <chart:NumericalAxis.LabelStyle>
+                                <chart:ChartAxisLabelStyle TextColor="Black" FontSize="Caption"/>
+                            </chart:NumericalAxis.LabelStyle>
+                        </chart:NumericalAxis>
+                    </chart:SfCartesianChart.YAxes>
+
+                    <chart:RangeColumnSeries Width="{x:OnPlatform Android='0.9', iOS='0.9', Default='0.8'}" Fill="#98fb98" ShowDataLabels="True" Label="2021" 
+                                             ItemsSource="{Binding TemperatureCollection}" 
+                                             XBindingPath="Month" High="High2021" Low="Low2021">
+                        <chart:RangeColumnSeries.DataLabelSettings>
+                            <chart:CartesianDataLabelSettings UseSeriesPalette="False">
+                                <chart:CartesianDataLabelSettings.LabelStyle>
+                                    <chart:ChartDataLabelStyle TextColor="Black"/>
+                                </chart:CartesianDataLabelSettings.LabelStyle>
+                            </chart:CartesianDataLabelSettings>
+                        </chart:RangeColumnSeries.DataLabelSettings>
+                    </chart:RangeColumnSeries>
+
+                    <chart:RangeColumnSeries Width="{x:OnPlatform Android='0.9', iOS='0.9', Default='0.8'}" Fill="#ff1493" ShowDataLabels="True" Label="2022" 
+                                             ItemsSource="{Binding TemperatureCollection}" 
+                                             XBindingPath="Month" High="High2022"  Low="Low2022">
+                        <chart:RangeColumnSeries.DataLabelSettings>
+                            <chart:CartesianDataLabelSettings UseSeriesPalette="False">
+                                <chart:CartesianDataLabelSettings.LabelStyle>
+                                    <chart:ChartDataLabelStyle TextColor="White" FontAttributes="Bold"/>
+                                </chart:CartesianDataLabelSettings.LabelStyle>
+                            </chart:CartesianDataLabelSettings>
+                        </chart:RangeColumnSeries.DataLabelSettings>
+                    </chart:RangeColumnSeries>
+
+                </chart:SfCartesianChart>
+
+                <Label Grid.Row="1" FontSize="Caption" FontAttributes="Italic" 
+                       Text="Monthly temperature range at a weather station in Rome (Sallustiano), Italy, in 2021 and 2022, in °C.">
+                </Label>
+
+            </Grid>
+
+        </Border>
+
+    </ContentPage.Content>
+
+</ContentPage>
