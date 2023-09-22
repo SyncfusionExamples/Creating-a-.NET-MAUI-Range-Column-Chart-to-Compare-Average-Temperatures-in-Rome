@@ -76,7 +76,7 @@
                         </chart:NumericalAxis>
                     </chart:SfCartesianChart.YAxes>
 
-                    <chart:RangeColumnSeries Width="{x:OnPlatform Android='0.9', iOS='0.9', Default='0.8'}" Fill="PaleGreen" ShowDataLabels="True" Label="2021" 
+                    <chart:RangeColumnSeries Width="{x:OnPlatform Android='0.9', iOS='0.9', Default='0.8'}" Fill="#98fb98" ShowDataLabels="True" Label="2021" 
                                              ItemsSource="{Binding TemperatureCollection}" 
                                              XBindingPath="Month" High="High2021" Low="Low2021">
                         <chart:RangeColumnSeries.DataLabelSettings>
@@ -88,7 +88,7 @@
                         </chart:RangeColumnSeries.DataLabelSettings>
                     </chart:RangeColumnSeries>
 
-                    <chart:RangeColumnSeries Width="{x:OnPlatform Android='0.9', iOS='0.9', Default='0.8'}" Fill=" DeepPink" ShowDataLabels="True" Label="2022" 
+                    <chart:RangeColumnSeries Width="{x:OnPlatform Android='0.9', iOS='0.9', Default='0.8'}" Fill="#ff1493" ShowDataLabels="True" Label="2022" 
                                              ItemsSource="{Binding TemperatureCollection}" 
                                              XBindingPath="Month" High="High2022"  Low="Low2022">
                         <chart:RangeColumnSeries.DataLabelSettings>
