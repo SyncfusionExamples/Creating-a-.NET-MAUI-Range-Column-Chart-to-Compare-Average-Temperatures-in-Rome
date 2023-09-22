@@ -1,4 +1,4 @@
-# Creating-a-.NET-MAUI-Range-Column-Chart-to-Compare-Average-Temperatures-in-Rome
+# Creating a .NET MAUI Range Column Chart to Compare Average Temperatures in Rome
 A range column chart is a valuable tool for visualizing data intervals, enabling comparisons between categories or time periods. It's particularly useful for showing variations and trends in data sets with upper and lower values.
 
 This sample demonstrates how to create a Range Column Chart to compare average temperatures in Rome using .NET MAUI (SfCartesianChart).
