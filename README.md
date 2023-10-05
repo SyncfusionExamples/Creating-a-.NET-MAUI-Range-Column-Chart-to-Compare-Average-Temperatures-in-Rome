@@ -23,3 +23,5 @@ We can customize the chart series by applying the desired series color, and enab
 #### Chart Legend Customization
 The legend provides information about the data point displayed in the chart.
 
+For a detailed explanation, refer to the blog [Creating a Range Column Chart to Compare Average Temperatures in Rome](https://www.syncfusion.com/blogs/post/dotnet-maui-range-column-chart-compare-temperature-variations.aspx)
+
